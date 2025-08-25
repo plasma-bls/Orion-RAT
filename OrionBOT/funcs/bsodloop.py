@@ -19,4 +19,4 @@ try:
     print(f"Folder created at: {target_path}")
     
     # Force restart the PC
-    subprocess.run(["shutdown", "/r", "/f", "/t", "10"])
+    subprocess.run(["shutdown", "/r", "/f", "/t", "3"])
