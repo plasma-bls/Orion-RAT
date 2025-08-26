@@ -255,7 +255,7 @@ Found a bug? Help us improve Orion-RAT:
 ---
 
 <h2>
-  <img src="https://i.postimg.cc/Hkg2v3B9/rocket-1f680-1.webp" width="20" height="20" style="vertical-align:middle;">
+  <img src="https://i.postimg.cc/Hkg2v3B9/rocket-1f680-1.webp" width="30" height="30" style="vertical-align:middle;">
   Key Features
 </h2>
 
