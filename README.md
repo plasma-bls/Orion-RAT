@@ -240,7 +240,10 @@ Contributions are welcome! Here's how you can help:
 
 ---
 
-## Bug Reports
+<h2>
+  <img src="https://i.postimg.cc/RVyc2ddD/exclamation-mark-2757.webp" width="30" height="30" style="vertical-align:middle;">
+  Bug Reports
+</h2>
 
 Found a bug? Help us improve Orion-RAT:
 
