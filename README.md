@@ -1,4 +1,4 @@
-<img style="text_align: center" width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/bcc9cf71-a450-4559-a383-1c6eba8dbf5f" />
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/bcc9cf71-a450-4559-a383-1c6eba8dbf5f" />
 
 
 [![Top Language](https://img.shields.io/github/languages/top/plasma-bls/Orion-RAT?style=flat-square&color=58a6ff)](https://github.com/plasma-bls/Orion-RAT)
