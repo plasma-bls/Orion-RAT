@@ -111,8 +111,8 @@ $rm old_file.txt       # Delete file
 ```bash
 $pwd                           # Check current location
 $ls                           # List current files
-$rm temp_file.log             # Remove temporary file
-$rmdir old_backup_folder      # Remove obsolete directory
+$rm file.txt             # Remove file
+$rmdir folder/      # Remove directory
 ```
 
 **Scenario 2: System Monitoring**
@@ -125,20 +125,20 @@ $ss                           # Take system screenshot
 
 **Scenario 3: File Operations**
 ```bash
-$cd /documents               # Navigate to documents
+$cd /folder               # Navigate to documents
 $upload report.pdf           # Upload a file
 $download /backup/data.zip   # Download a file
-$ls                         # Verify file operations
 ```
 
 **Scenario 4: Process Management**
 ```bash
 $dmproc                      # List running processes
 $kill malicious_app.exe      # Terminate unwanted process
-$exec netstat -an           # Execute network command
-$add_startup security_tool   # Add tool to startup
+$exec command           # Execute blind command
+$add_startup <executable path>   # Add tool to startup
 ```
 
+---
 ---
 
 <h2>
