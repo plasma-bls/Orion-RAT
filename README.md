@@ -99,7 +99,7 @@ cd Orion-RAT
 ./orion-tool
 
 # Example commands
-$pwd                    # Show current directory
+$pwd                   # Show current directory
 $cd /home/user         # Change directory
 $dmproc                # List processes
 $rm old_file.txt       # Delete file
