@@ -19,6 +19,12 @@
 
 **Warning**: Orion-RAT includes powerful system commands that can affect system stability and security. Commands marked with **(W)** are Windows-specific and potentially destructive. Use advanced features with extreme caution and only in controlled environments.
 
+
+### Key Features
+
+- **Fast and Lightweight** - Optimized performance for smooth experience
+- **Intuitive Interface** - Simple and memorable commands with `# Orion-RAT
+
 <div align="center">
 
 ![Orion-RAT Logo](https://via.placeholder.com/200x100/0d1117/58a6ff?text=Orion-RAT)
@@ -284,7 +290,7 @@ This project is distributed under the MIT License. See the [LICENSE](LICENSE) fi
 
 <div align="center">
 
-<p>If Orion-RAT is useful to you, leave a star! <img src="https://i.postimg.cc/nh2Pv6pD/top-arrow-1f51d.webp" width="30" height="30" style="vertical-align:middle;"></p>
+<p>If Orion-RAT is useful to you, leave a star! <img src="https://i.postimg.cc/pTH5R15s/star-2b50.webp" width="30" height="30" style="vertical-align:middle;"></p>
 
 
 
