@@ -254,7 +254,11 @@ Found a bug? Help us improve Orion-RAT:
 
 ---
 
-##  🚀 Key Features
+<h2>
+  <img src="https://em-content.zobj.net/source/telegram/360/rocket_1f680.webp" width="20" height="20" style="vertical-align:middle;">
+  Key Features
+</h2>
+
 
 - [ ] Fast and safe
 - [ ] Not backdoored
