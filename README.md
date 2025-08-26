@@ -1,9 +1,71 @@
-<h1 align="center">
-   Orion-RAT
-</h1>
+# Orion-RAT
+
 <div align="center">
 
 ![Orion-RAT Logo](https://via.placeholder.com/200x100/0d1117/58a6ff?text=Orion-RAT)
+
+
+[![Top Language](https://img.shields.io/github/languages/top/plasma-bls/Orion-RAT?style=flat-square&color=58a6ff)](https://github.com/plasma-bls/Orion-RAT)
+[![Stars](https://img.shields.io/github/stars/plasma-bls/Orion-RAT?style=flat-square&color=ffd700)](https://github.com/plasma-bls/Orion-RAT/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/plasma-bls/Orion-RAT?style=flat-square&color=32d74b)](https://github.com/plasma-bls/Orion-RAT/commits)
+[![License](https://img.shields.io/github/license/plasma-bls/Orion-RAT?style=flat-square&color=ff6b6b)](LICENSE)
+[![Issues](https://img.shields.io/github/issues/plasma-bls/Orion-RAT?style=flat-square&color=ff9500)](https://github.com/plasma-bls/Orion-RAT/issues)
+
+[Report Bug](https://github.com/plasma-bls/Orion-RAT/issues) • [Request Feature](https://github.com/plasma-bls/Orion-RAT/issues/new)
+
+</div>
+
+## Important Notice
+
+**Warning**: Orion-RAT includes powerful system commands that can affect system stability and security. Commands marked with **(W)** are Windows-specific and potentially destructive. Use advanced features with extreme caution and only in controlled environments.
+
+
+### Key Features
+
+- **Fast and Lightweight** - Optimized performance for smooth experience
+- **Intuitive Interface** - Simple and memorable commands with `# Orion-RAT
+
+<div align="center">
+
+![Orion-RAT Logo](https://via.placeholder.com/200x100/0d1117/58a6ff?text=Orion-RAT)
+
+**A powerful command-line tool for system management**
+
+[![Top Language](https://img.shields.io/github/languages/top/plasma-bls/Orion-RAT?style=flat-square&color=58a6ff)](https://github.com/plasma-bls/Orion-RAT)
+[![Stars](https://img.shields.io/github/stars/plasma-bls/Orion-RAT?style=flat-square&color=ffd700)](https://github.com/plasma-bls/Orion-RAT/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/plasma-bls/Orion-RAT?style=flat-square&color=32d74b)](https://github.com/plasma-bls/Orion-RAT/commits)
+[![License](https://img.shields.io/github/license/plasma-bls/Orion-RAT?style=flat-square&color=ff6b6b)](LICENSE)
+[![Issues](https://img.shields.io/github/issues/plasma-bls/Orion-RAT?style=flat-square&color=ff9500)](https://github.com/plasma-bls/Orion-RAT/issues)
+
+[Report Bug](https://github.com/plasma-bls/Orion-RAT/issues) • [Request Feature](https://github.com/plasma-bls/Orion-RAT/issues/new)
+
+</div>
+
+---
+
+## Overview
+
+**Orion-RAT** is a versatile command-line utility designed to streamline system management operations. With an intuitive interface and powerful commands, Orion-RAT allows you to navigate, manage, and monitor your system efficiently.
+
+ prefix
+- **Comprehensive File Management** - Upload, download, and manipulate files
+- **Advanced Process Control** - Monitor, manage, and terminate processes
+- **System Information** - Detailed system and network enumeration
+- **Cross-Platform Support** - Works on Windows and Linux systems
+- **Remote Capabilities** - Screenshot, notification, and file transfer features
+- **System Control** - Restart, shutdown, and startup management
+
+---
+
+## Available Commands
+
+All commands use the `# Orion-RAT
+
+<div align="center">
+
+![Orion-RAT Logo](https://via.placeholder.com/200x100/0d1117/58a6ff?text=Orion-RAT)
+
+**A powerful command-line tool for system management**
 
 [![Top Language](https://img.shields.io/github/languages/top/plasma-bls/Orion-RAT?style=flat-square&color=58a6ff)](https://github.com/plasma-bls/Orion-RAT)
 [![Stars](https://img.shields.io/github/stars/plasma-bls/Orion-RAT?style=flat-square&color=ffd700)](https://github.com/plasma-bls/Orion-RAT/stargazers)
@@ -31,9 +93,7 @@
 
 ---
 
-## Available Commands
-
-All commands use the `$` prefix for immediate identification:
+ prefix for immediate identification:
 
 ### Navigation and Information
 | Command | Description | Example |
@@ -41,17 +101,49 @@ All commands use the `$` prefix for immediate identification:
 | `$pwd` | Show current directory | `$pwd` |
 | `$whoami` | Display current user | `$whoami` |
 | `$cd <path>` | Change directory | `$cd /home/user/documents` |
+| `$ls` | List files in current directory | `$ls` |
 
 ### File and Directory Management
 | Command | Description | Example |
 |---------|-------------|---------|
 | `$rm <file>` | Delete a single file | `$rm document.txt` |
 | `$rmdir <dir>` | Delete an entire directory | `$rmdir old_folder` |
+| `$upload <attachment>` | Upload a file | `$upload document.pdf` |
+| `$download <path>` | Download a file | `$download /path/to/file.txt` |
 
-### System Monitoring
+### System Monitoring and Information
 | Command | Description | Example |
 |---------|-------------|---------|
 | `$dmproc` | List all active processes | `$dmproc` |
+| `$enum` | Display system & networking information | `$enum` |
+| `$ss` | Take a screenshot | `$ss` |
+
+### Process Management
+| Command | Description | Example |
+|---------|-------------|---------|
+| `$kill <process>` | Terminate a specific process | `$kill notepad.exe` |
+| `$exec <command>` | Execute a shell command | `$exec ipconfig` |
+
+### System Control
+| Command | Description | Example |
+|---------|-------------|---------|
+| `$restart` | Restart the system | `$restart` |
+| `$shutdown` | Shutdown the system | `$shutdown` |
+| `$add_startup <name>` | Add program to startup | `$add_startup myapp` |
+| `$notf <text>` | Send a notification (Linux) | `$notf "Hello World"` |
+
+### Utility Commands
+| Command | Description | Example |
+|---------|-------------|---------|
+| `$hello` | Display greeting message | `$hello` |
+| `$steak` | Try it and find out | `$steak` |
+
+### Advanced Features (Use with Caution)
+| Command | Description | Platform | Example |
+|---------|-------------|----------|---------|
+| `$gettoken` | Extract Discord tokens | Windows | `$gettoken` |
+| `$bsod` | Trigger system crash (BSOD) | Windows | `$bsod` |
+| `$bsodloop` | Create boot-loop BSOD | Windows | `$bsodloop` |
 
 ---
 
@@ -90,16 +182,33 @@ $rm old_file.txt       # Delete file
 **Scenario 1: Directory Cleanup**
 ```bash
 $pwd                           # Check current location
-$dmproc                        # Check active processes
+$ls                           # List current files
 $rm temp_file.log             # Remove temporary file
 $rmdir old_backup_folder      # Remove obsolete directory
 ```
 
-**Scenario 2: System Navigation**
+**Scenario 2: System Monitoring**
 ```bash
 $whoami                       # Check current user
-$cd /var/log                 # Navigate to system logs
-$pwd                         # Confirm location
+$enum                         # Get system information
+$dmproc                       # List active processes
+$ss                           # Take system screenshot
+```
+
+**Scenario 3: File Operations**
+```bash
+$cd /documents               # Navigate to documents
+$upload report.pdf           # Upload a file
+$download /backup/data.zip   # Download a file
+$ls                         # Verify file operations
+```
+
+**Scenario 4: Process Management**
+```bash
+$dmproc                      # List running processes
+$kill malicious_app.exe      # Terminate unwanted process
+$exec netstat -an           # Execute network command
+$add_startup security_tool   # Add tool to startup
 ```
 
 ---
