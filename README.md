@@ -188,6 +188,7 @@ This project is distributed under the MIT License. See the [LICENSE](LICENSE) fi
 ## Contributors
 
 **Sethy** - [GitHub Profile](https://github.com/quelloduro)
+<br>
 **Aniko** - [GitHub Profile](https://github.com/mraniko)
 
 
