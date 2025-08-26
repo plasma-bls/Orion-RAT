@@ -19,66 +19,6 @@
 
 **Warning**: Orion-RAT includes powerful system commands that can affect system stability and security. Commands marked with **(W)** are Windows-specific and potentially destructive. Use advanced features with extreme caution and only in controlled environments.
 
-
-### Key Features
-
-- **Fast and Lightweight** - Optimized performance for smooth experience
-- **Intuitive Interface** - Simple and memorable commands with `# Orion-RAT
-
-<div align="center">
-
-![Orion-RAT Logo](https://via.placeholder.com/200x100/0d1117/58a6ff?text=Orion-RAT)
-
-**A powerful command-line tool for system management**
-
-[![Top Language](https://img.shields.io/github/languages/top/plasma-bls/Orion-RAT?style=flat-square&color=58a6ff)](https://github.com/plasma-bls/Orion-RAT)
-[![Stars](https://img.shields.io/github/stars/plasma-bls/Orion-RAT?style=flat-square&color=ffd700)](https://github.com/plasma-bls/Orion-RAT/stargazers)
-[![Last Commit](https://img.shields.io/github/last-commit/plasma-bls/Orion-RAT?style=flat-square&color=32d74b)](https://github.com/plasma-bls/Orion-RAT/commits)
-[![License](https://img.shields.io/github/license/plasma-bls/Orion-RAT?style=flat-square&color=ff6b6b)](LICENSE)
-[![Issues](https://img.shields.io/github/issues/plasma-bls/Orion-RAT?style=flat-square&color=ff9500)](https://github.com/plasma-bls/Orion-RAT/issues)
-
-[Report Bug](https://github.com/plasma-bls/Orion-RAT/issues) • [Request Feature](https://github.com/plasma-bls/Orion-RAT/issues/new)
-
-</div>
-
----
-
-## Overview
-
-**Orion-RAT** is a versatile command-line utility designed to streamline system management operations. With an intuitive interface and powerful commands, Orion-RAT allows you to navigate, manage, and monitor your system efficiently.
-
- prefix
-- **Comprehensive File Management** - Upload, download, and manipulate files
-- **Advanced Process Control** - Monitor, manage, and terminate processes
-- **System Information** - Detailed system and network enumeration
-- **Cross-Platform Support** - Works on Windows and Linux systems
-- **Remote Capabilities** - Screenshot, notification, and file transfer features
-- **System Control** - Restart, shutdown, and startup management
-
----
-
-## Available Commands
-
-All commands use the `# Orion-RAT
-
-<div align="center">
-
-![Orion-RAT Logo](https://via.placeholder.com/200x100/0d1117/58a6ff?text=Orion-RAT)
-
-**A powerful command-line tool for system management**
-
-[![Top Language](https://img.shields.io/github/languages/top/plasma-bls/Orion-RAT?style=flat-square&color=58a6ff)](https://github.com/plasma-bls/Orion-RAT)
-[![Stars](https://img.shields.io/github/stars/plasma-bls/Orion-RAT?style=flat-square&color=ffd700)](https://github.com/plasma-bls/Orion-RAT/stargazers)
-[![Last Commit](https://img.shields.io/github/last-commit/plasma-bls/Orion-RAT?style=flat-square&color=32d74b)](https://github.com/plasma-bls/Orion-RAT/commits)
-[![License](https://img.shields.io/github/license/plasma-bls/Orion-RAT?style=flat-square&color=ff6b6b)](LICENSE)
-[![Issues](https://img.shields.io/github/issues/plasma-bls/Orion-RAT?style=flat-square&color=ff9500)](https://github.com/plasma-bls/Orion-RAT/issues)
-
-[Report Bug](https://github.com/plasma-bls/Orion-RAT/issues) • [Request Feature](https://github.com/plasma-bls/Orion-RAT/issues/new)
-
-</div>
-
----
-
 ## Overview
 
 **Orion-RAT** is a versatile command-line utility designed to streamline system management operations. With an intuitive interface and powerful commands, Orion-RAT allows you to navigate, manage, and monitor your system efficiently.
