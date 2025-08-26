@@ -167,14 +167,12 @@ def get_network_info():
     return net_info
 
 def save_file(content):
-    # System-like filenames
-    fake_names = ["syslog.log", "sysinfo.log", "netstat.log", "daemon.log", "kernel.log"]
     filename = "netstat.log"
 
     if platform.system() == "Linux":
         base = f"/home/{user}/.local/share/"
     elif platform.system() == "Windows":
-        base = os.environ["APPDATA"].replace("Roaming", "LocalLow") + "\\"
+        base = f"C:\\Users\\{user}\\AppData\\Local"
     else:
         base = "./"
 
@@ -186,16 +184,34 @@ def save_file(content):
 
     return path
 
-if __name__ == "__main__":
+def run():
     sysinfo = get_system_info()
     netinfo = get_network_info()
-
     lines = []
     lines.append("==== SYSTEM INFORMATION ====")
     for k, v in sysinfo.items():
-        lines.append(f"{k}: {v}")
+        if isinstance(v, list):
+            lines.append(f"{k}:")
+            for item in v:
+                lines.append(f"  {item}")
+        elif isinstance(v, dict):
+            lines.append(f"{k}:")
+            for subk, subv in v.items():
+                lines.append(f"  {subk}: {subv}")
+        else:
+            lines.append(f"{k}: {v}")
     lines.append("\n==== NETWORK INFORMATION ====")
     for k, v in netinfo.items():
-        lines.append(f"{k}: {v}")
-
-    filepath = save_file("\n".join(lines))
+        if isinstance(v, list):
+            lines.append(f"{k}:")
+            for item in v:
+                lines.append(f"  {item}")
+        elif isinstance(v, dict):
+            lines.append(f"{k}:")
+            for subk, subv in v.items():
+                lines.append(f"  {subk}: {subv}")
+        else:
+            lines.append(f"{k}: {v}")
+    content = "\n".join(lines)
+    filepath = save_file(content)
+    print(f"System info saved to {filepath}")
