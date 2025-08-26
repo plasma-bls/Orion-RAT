@@ -9,7 +9,7 @@
 </p>
 
 ## Functions
-The prefix of the bot it's $
+The prefix of the bot it's `$`
 
 $pwd           Show current directory.
 $rm            Deletes a single file (exemple $rm C:\Users\vbox\Downloads\main.py).
