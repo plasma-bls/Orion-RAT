@@ -110,9 +110,9 @@ $rm old_file.txt       # Delete file
 **Scenario 1: Directory Cleanup**
 ```bash
 $pwd                           # Check current location
-$ls                           # List current files
-$rm file.txt             # Remove file
-$rmdir folder/      # Remove directory
+$ls                            # List current files
+$rm file.txt                   # Remove file
+$rmdir folder/                 # Remove directory
 ```
 
 **Scenario 2: System Monitoring**
@@ -125,7 +125,7 @@ $ss                           # Take system screenshot
 
 **Scenario 3: File Operations**
 ```bash
-$cd /folder               # Navigate to documents
+$cd /folder                  # Change directory
 $upload report.pdf           # Upload a file
 $download /backup/data.zip   # Download a file
 ```
@@ -133,9 +133,9 @@ $download /backup/data.zip   # Download a file
 **Scenario 4: Process Management**
 ```bash
 $dmproc                      # List running processes
-$kill malicious_app.exe      # Terminate unwanted process
-$exec command           # Execute blind command
-$add_startup <executable path>   # Add tool to startup
+$kill file.exe               # Terminate unwanted process
+$exec command                # Execute blind command
+$add_startup <rat-path>      # Add tool to startup
 ```
 
 ---
