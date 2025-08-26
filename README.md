@@ -1,14 +1,19 @@
-<h1 align="center">
-   OrionRAT
-</h1>
-<p align= "center">
-   <!--in sta riga ci starebbe il logo--> 
-   <img src="https://img.shields.io/github/languages/top/plasma-bls/Orion-RAT">
-   <img src="https://img.shields.io/github/stars/plasma-bls/Orion-RAT">
-   <img src="https://img.shields.io/github/last-commit/plasma-bls/Orion-RAT">
-</p>
+# 🌟 OrionTool
 
-[Report a bug](https://github.com/plasma-bls/OrionTool/issues) 
+<div align="center">
+
+![OrionTool Logo](https://via.placeholder.com/200x100/0d1117/58a6ff?text=OrionTool)
+
+**Un potente strumento da riga di comando per la gestione del sistema**
+
+[![Top Language](https://img.shields.io/github/languages/top/plasma-bls/OrionTool?style=flat-square&color=58a6ff)](https://github.com/plasma-bls/OrionTool)
+[![Stars](https://img.shields.io/github/stars/plasma-bls/OrionTool?style=flat-square&color=ffd700)](https://github.com/plasma-bls/OrionTool/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/plasma-bls/OrionTool?style=flat-square&color=32d74b)](https://github.com/plasma-bls/OrionTool/commits)
+[![License](https://img.shields.io/github/license/plasma-bls/OrionTool?style=flat-square&color=ff6b6b)](LICENSE)
+[![Issues](https://img.shields.io/github/issues/plasma-bls/OrionTool?style=flat-square&color=ff9500)](https://github.com/plasma-bls/OrionTool/issues)
+
+[📖 Documentazione](https://github.com/plasma-bls/OrionTool/wiki) • [🐛 Segnala Bug](https://github.com/plasma-bls/OrionTool/issues) • [💡 Richiedi Feature](https://github.com/plasma-bls/OrionTool/issues/new)
+
 </div>
 
 ---
