@@ -1,2 +1,6 @@
-# Orion-RAT
-A powerful and undetected RAT that uses discord bots as C2
+<h1 align="center">
+   OrionRAT
+</h1>
+<p align= "center">
+
+</p>
