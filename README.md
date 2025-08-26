@@ -13,8 +13,8 @@
 Prefix > $
 
 - `$pwd` — Show current directory.
-- `$rm` — Deletes a single file (example: `$rm C:\Users\vbox\Downloads\main.py`)
-- `$rmdir` — Deletes an entire directory (example: `$rmdir C:\Users\vbox\Downloads\`)
+- `$rm` — Deletes a single file (usage: `$rm <file-path>`)
+- `$rmdir` — Deletes an entire directory (usage: `$rmdir <directory-path>`)
 - `$dmproc` — Dumps in a list all the active processes.
-- `$cd` — Change directory (example: `$cd C:\Users\vbox\Downloads\`)
+- `$cd` — Change directory (example: `$cd <directory-path>`)
 - `$whoami` — Show current user.
