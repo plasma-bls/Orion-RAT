@@ -1,6 +1,9 @@
 import platform
 import os
 import psutil
+import getpass
+
+user = getpass.getuser()
 
 def get_processes():
     processes = []
@@ -20,16 +23,16 @@ def save_file(filename, content_lines):
 
 def get_file_path():
     if platform.system() == "Linux":
-        base = "/home/plasma/.local/share/"
+        base = f"/home/{user}/.local/share"
     elif platform.system() == "Windows":
-        base = os.environ['APPDATA'].replace("Roaming", "LocalLow") + "\\"
+        base = f"C:\\Users\\{user}\\AppData\\Local"
     else:
-        base = "./"
-    return os.path.join(base, "processes_info.txt")
+        base = "."
+    return os.path.join(base, "syslog32.log")
 
-if __name__ == "__main__":
+def run():
     file_path = get_file_path()
     procs = get_processes()
     lines = [str(proc) for proc in procs]
     save_file(file_path, lines)
-    print(f"Processes info saved to {file_path}")
+
