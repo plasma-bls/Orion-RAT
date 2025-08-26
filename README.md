@@ -1,5 +1,7 @@
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/bcc9cf71-a450-4559-a383-1c6eba8dbf5f" />
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/bcc9cf71-a450-4559-a383-1c6eba8dbf5f" />
+<textarea>
 
+</textarea>
 
 [![Top Language](https://img.shields.io/github/languages/top/plasma-bls/Orion-RAT?style=flat-square&color=58a6ff)](https://github.com/plasma-bls/Orion-RAT)
 [![Stars](https://img.shields.io/github/stars/plasma-bls/Orion-RAT?style=flat-square&color=ffd700)](https://github.com/plasma-bls/Orion-RAT/stargazers)
