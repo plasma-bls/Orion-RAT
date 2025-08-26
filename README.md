@@ -256,12 +256,12 @@ Found a bug? Help us improve Orion-RAT:
 
 ## Roadmap
 
-- [ ] Advanced file search command
-- [ ] System monitoring dashboard
-- [ ] Customizable themes
-- [ ] Plugin system
-- [ ] Web companion interface
-- [ ] Multi-language support
+- [ ] Fast and safe
+- [ ] Not backdoored
+- [ ] Undetected to Uncoverit and Virus Total
+- [ ] Open Source
+- [ ] Auto-Startup Persistence
+- [ ] Easy to Use
 
 ---
 
