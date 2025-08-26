@@ -9,11 +9,11 @@
 </p>
 
 ## Functions
-The prefix of the bot it's `$`
+The prefix of the bot it's $
 
-$pwd           Show current directory.
-$rm            Deletes a single file (exemple $rm C:\Users\vbox\Downloads\main.py).
-$rmdir         Deletes an entire directory (exemple $rmdir C:\Users\vbox\Downloads\).
-$dmproc        Dumps in a list all the active processes.
-$cd            Change directory (exemple $cd C:\Users\vbox\Downloads\).
-$whoami        Show current user.
+- `$pwd `          Show current directory.
+- `$rm`            Deletes a single file (exemple $rm C:\Users\vbox\Downloads\main.py).
+- `$rmdir`         Deletes an entire directory (exemple $rmdir C:\Users\vbox\Downloads\).
+- `$dmproc`        Dumps in a list all the active processes.
+- `$cd`            Change directory (exemple $cd C:\Users\vbox\Downloads\).
+- `$whoami`        Show current user.
