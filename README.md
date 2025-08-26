@@ -189,7 +189,7 @@ This project is distributed under the MIT License. See the [LICENSE](LICENSE) fi
 
 **Sethy** - [GitHub Profile](https://github.com/quelloduro)
 <br>
-**Aniko** - [GitHub Profile](https://github.com/mraniko)
+**Aniko** - [GitHub Profile](https://github.com/aniko33)
 
 
 ---
