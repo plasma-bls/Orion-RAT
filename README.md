@@ -1,183 +1,185 @@
 <h1 align="center">
-   OrionRAT
+   Orion-RAT
 </h1>
 <div align="center">
-   
-[![Top Language](https://img.shields.io/github/languages/top/plasma-bls/OrionTool?style=flat-square&color=58a6ff)](https://github.com/plasma-bls/OrionTool)
-[![Stars](https://img.shields.io/github/stars/plasma-bls/OrionTool?style=flat-square&color=ffd700)](https://github.com/plasma-bls/OrionTool/stargazers)
-[![Last Commit](https://img.shields.io/github/last-commit/plasma-bls/OrionTool?style=flat-square&color=32d74b)](https://github.com/plasma-bls/OrionTool/commits)
-[![License](https://img.shields.io/github/license/plasma-bls/OrionTool?style=flat-square&color=ff6b6b)](LICENSE)
-[![Issues](https://img.shields.io/github/issues/plasma-bls/OrionTool?style=flat-square&color=ff9500)](https://github.com/plasma-bls/OrionTool/issues)
 
-• [ Report a bug ](https://github.com/plasma-bls/OrionTool/issues) • [ Ask new feature ](https://github.com/plasma-bls/OrionTool/issues/new)
+![Orion-RAT Logo](https://via.placeholder.com/200x100/0d1117/58a6ff?text=Orion-RAT)
+
+[![Top Language](https://img.shields.io/github/languages/top/plasma-bls/Orion-RAT?style=flat-square&color=58a6ff)](https://github.com/plasma-bls/Orion-RAT)
+[![Stars](https://img.shields.io/github/stars/plasma-bls/Orion-RAT?style=flat-square&color=ffd700)](https://github.com/plasma-bls/Orion-RAT/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/plasma-bls/Orion-RAT?style=flat-square&color=32d74b)](https://github.com/plasma-bls/Orion-RAT/commits)
+[![License](https://img.shields.io/github/license/plasma-bls/Orion-RAT?style=flat-square&color=ff6b6b)](LICENSE)
+[![Issues](https://img.shields.io/github/issues/plasma-bls/Orion-RAT?style=flat-square&color=ff9500)](https://github.com/plasma-bls/Orion-RAT/issues)
+
+[Report Bug](https://github.com/plasma-bls/Orion-RAT/issues) • [Request Feature](https://github.com/plasma-bls/Orion-RAT/issues/new)
 
 </div>
 
 ---
 
-## ✨ Panoramica
+## Overview
 
-**OrionTool** è uno strumento versatile da riga di comando progettato per semplificare le operazioni di gestione del sistema. Con un'interfaccia intuitiva e comandi potenti, OrionTool ti permette di navigare, gestire e monitorare il tuo sistema con efficienza.
+**Orion-RAT** is a versatile command-line utility designed to streamline system management operations. With an intuitive interface and powerful commands, Orion-RAT allows you to navigate, manage, and monitor your system efficiently.
 
-### 🎯 Caratteristiche Principali
+### Key Features
 
-- 🚀 **Veloce e Leggero** - Prestazioni ottimizzate per un'esperienza fluida
-- 🎨 **Interfaccia Intuitiva** - Comandi semplici e memorabili
-- 🔧 **Gestione File Avanzata** - Operazioni sui file e directory semplificate
-- 📊 **Monitoraggio Processi** - Visualizzazione completa dei processi attivi
-- 🛡️ **Sicuro** - Operazioni controllate e sicure
-
----
-
-## 📋 Comandi Disponibili
-
-Tutti i comandi utilizzano il prefisso `$` per un'identificazione immediata:
-
-### 📂 Navigazione e Informazioni
-| Comando | Descrizione | Esempio |
-|---------|-------------|---------|
-| `$pwd` | Mostra la directory corrente | `$pwd` |
-| `$whoami` | Visualizza l'utente corrente | `$whoami` |
-| `$cd <path>` | Cambia directory | `$cd /home/user/documents` |
-
-### 🗂️ Gestione File e Directory
-| Comando | Descrizione | Esempio |
-|---------|-------------|---------|
-| `$rm <file>` | Elimina un singolo file | `$rm document.txt` |
-| `$rmdir <dir>` | Elimina un'intera directory | `$rmdir old_folder` |
-
-### ⚙️ Monitoraggio Sistema
-| Comando | Descrizione | Esempio |
-|---------|-------------|---------|
-| `$dmproc` | Lista tutti i processi attivi | `$dmproc` |
+- **Fast and Lightweight** - Optimized performance for smooth experience
+- **Intuitive Interface** - Simple and memorable commands
+- **Advanced File Management** - Simplified file and directory operations
+- **Process Monitoring** - Complete view of active processes
+- **Secure Operations** - Controlled and safe system operations
 
 ---
 
-## 🚀 Installazione
+## Available Commands
 
-### Metodo 1: Clone del Repository
+All commands use the `$` prefix for immediate identification:
+
+### Navigation and Information
+| Command | Description | Example |
+|---------|-------------|---------|
+| `$pwd` | Show current directory | `$pwd` |
+| `$whoami` | Display current user | `$whoami` |
+| `$cd <path>` | Change directory | `$cd /home/user/documents` |
+
+### File and Directory Management
+| Command | Description | Example |
+|---------|-------------|---------|
+| `$rm <file>` | Delete a single file | `$rm document.txt` |
+| `$rmdir <dir>` | Delete an entire directory | `$rmdir old_folder` |
+
+### System Monitoring
+| Command | Description | Example |
+|---------|-------------|---------|
+| `$dmproc` | List all active processes | `$dmproc` |
+
+---
+
+## Installation
+
+### Method 1: Clone Repository
 ```bash
-git clone https://github.com/plasma-bls/OrionTool.git
-cd OrionTool
+git clone https://github.com/plasma-bls/Orion-RAT.git
+cd Orion-RAT
 ```
 
-### Metodo 2: Download Diretto
-Scarica l'ultima release dalla [pagina releases](https://github.com/plasma-bls/OrionTool/releases)
+### Method 2: Direct Download
+Download the latest release from the [releases page](https://github.com/plasma-bls/Orion-RAT/releases)
 
 ---
 
-## 📖 Utilizzo
+## Usage
 
-### Avvio Rapido
+### Quick Start
 ```bash
-# Naviga nella directory del progetto
-cd OrionTool
+# Navigate to project directory
+cd Orion-RAT
 
-# Esegui OrionTool
+# Run Orion-RAT
 ./orion-tool
 
-# Esempi di comandi
-$pwd                    # Mostra directory corrente
-$cd /home/user         # Cambia directory
-$dmproc                # Lista processi
-$rm old_file.txt       # Elimina file
+# Example commands
+$pwd                    # Show current directory
+$cd /home/user         # Change directory
+$dmproc                # List processes
+$rm old_file.txt       # Delete file
 ```
 
-### Esempi Pratici
+### Practical Examples
 
-**Scenario 1: Pulizia Directory**
+**Scenario 1: Directory Cleanup**
 ```bash
-$pwd                           # Verifica posizione
-$dmproc                        # Controlla processi attivi
-$rm temp_file.log             # Rimuovi file temporaneo
-$rmdir old_backup_folder      # Rimuovi directory obsoleta
+$pwd                           # Check current location
+$dmproc                        # Check active processes
+$rm temp_file.log             # Remove temporary file
+$rmdir old_backup_folder      # Remove obsolete directory
 ```
 
-**Scenario 2: Navigazione Sistema**
+**Scenario 2: System Navigation**
 ```bash
-$whoami                       # Controlla utente
-$cd /var/log                 # Vai ai log di sistema
-$pwd                         # Conferma posizione
+$whoami                       # Check current user
+$cd /var/log                 # Navigate to system logs
+$pwd                         # Confirm location
 ```
 
 ---
 
-## 🎨 Caratteristiche Tecniche
+## Technical Specifications
 
-- **Linguaggio**: Determinato automaticamente da GitHub
-- **Compatibilità**: Multi-piattaforma
-- **Dipendenze**: Minime
-- **Performance**: Ottimizzate per velocità
-
----
-
-## 🤝 Contribuire
-
-Ogni contributo è benvenuto! Ecco come puoi aiutare:
-
-1. 🍴 **Fork** il repository
-2. 🌿 Crea un **branch** per la tua feature (`git checkout -b feature/amazing-feature`)
-3. 📝 **Commit** le tue modifiche (`git commit -m 'Add amazing feature'`)
-4. 📤 **Push** al branch (`git push origin feature/amazing-feature`)
-5. 🔄 Apri una **Pull Request**
-
-### 📋 Guidelines per Contribuire
-- Segui lo stile di codice esistente
-- Aggiungi test per nuove funzionalità
-- Aggiorna la documentazione se necessario
-- Descrivi chiaramente le modifiche nella PR
+- **Language**: Automatically determined by GitHub
+- **Compatibility**: Cross-platform
+- **Dependencies**: Minimal
+- **Performance**: Optimized for speed
 
 ---
 
-## 🐛 Segnalazione Bug
+## Contributing
 
-Hai trovato un bug? Aiutaci a migliorare OrionTool:
+Contributions are welcome! Here's how you can help:
 
-1. Verifica che il bug non sia già stato segnalato
-2. Crea un [nuovo issue](https://github.com/plasma-bls/OrionTool/issues/new)
-3. Includi:
-   - Descrizione dettagliata del problema
-   - Passi per riprodurre il bug
-   - Output di errore (se presente)
-   - Informazioni sul sistema
+1. **Fork** the repository
+2. Create a **branch** for your feature (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. Open a **Pull Request**
 
----
-
-## 📊 Roadmap
-
-- [ ] 🔍 Comando di ricerca file avanzata
-- [ ] 📈 Dashboard di monitoraggio sistema
-- [ ] 🎨 Tema personalizzabile
-- [ ] 🔌 Sistema di plugin
-- [ ] 📱 Interfaccia web companion
-- [ ] 🌍 Supporto multilingua
+### Contribution Guidelines
+- Follow existing code style
+- Add tests for new features
+- Update documentation when necessary
+- Clearly describe changes in PR
 
 ---
 
-## 📜 Licenza
+## Bug Reports
 
-Questo progetto è distribuito sotto licenza MIT. Vedi il file [LICENSE](LICENSE) per maggiori dettagli.
+Found a bug? Help us improve Orion-RAT:
+
+1. Check if the bug hasn't already been reported
+2. Create a [new issue](https://github.com/plasma-bls/Orion-RAT/issues/new)
+3. Include:
+   - Detailed problem description
+   - Steps to reproduce the bug
+   - Error output (if present)
+   - System information
 
 ---
 
-## 👨‍💻 Autore
+## Roadmap
+
+- [ ] Advanced file search command
+- [ ] System monitoring dashboard
+- [ ] Customizable themes
+- [ ] Plugin system
+- [ ] Web companion interface
+- [ ] Multi-language support
+
+---
+
+## License
+
+This project is distributed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Author
 
 **plasma-bls** - [GitHub Profile](https://github.com/plasma-bls)
 
 ---
 
-## 🙏 Ringraziamenti
+## Acknowledgments
 
-- Grazie a tutti i contributori che hanno reso possibile questo progetto
-- Ringraziamenti speciali alla community open source
-- Ispirazione dai tool da riga di comando classici
+- Thanks to all contributors who made this project possible
+- Special thanks to the open source community
+- Inspiration from classic command-line tools
 
 ---
 
 <div align="center">
 
-**⭐ Se OrionTool ti è utile, considera di dargli una stella! ⭐**
+**If Orion-RAT is useful to you, consider giving it a star!**
 
-[⬆️ Torna all'inizio](#-oriontool)
+[Back to top](#Orion-RAT)
 
 </div>
