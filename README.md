@@ -9,7 +9,7 @@
 [![License](https://img.shields.io/github/license/plasma-bls/OrionTool?style=flat-square&color=ff6b6b)](LICENSE)
 [![Issues](https://img.shields.io/github/issues/plasma-bls/OrionTool?style=flat-square&color=ff9500)](https://github.com/plasma-bls/OrionTool/issues)
 
-[📖 Documentazione](https://github.com/plasma-bls/OrionTool/wiki) • [🐛 Segnala Bug](https://github.com/plasma-bls/OrionTool/issues) • [💡 Richiedi Feature](https://github.com/plasma-bls/OrionTool/issues/new)
+• [ Report a bug ](https://github.com/plasma-bls/OrionTool/issues) • [ Ask new feature ](https://github.com/plasma-bls/OrionTool/issues/new)
 
 </div>
 
