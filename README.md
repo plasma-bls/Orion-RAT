@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Orion-RAT Logo](https://via.placeholder.com/200x100/0d1117/58a6ff?text=Orion-RAT)
+<img src="https://i.postimg.cc/x1Rgh7x3/image.webp" alt="Orion-RAT Logo" width="200" height="100" style="border-radius:12px;">
 
 
 [![Top Language](https://img.shields.io/github/languages/top/plasma-bls/Orion-RAT?style=flat-square&color=58a6ff)](https://github.com/plasma-bls/Orion-RAT)
