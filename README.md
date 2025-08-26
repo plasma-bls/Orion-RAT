@@ -273,22 +273,19 @@ This project is distributed under the MIT License. See the [LICENSE](LICENSE) fi
 
 ## Author
 
-**plasma-bls** - [GitHub Profile](https://github.com/plasma-bls)
+**Plasma** - [GitHub Profile](https://github.com/plasma-bls)
 
 ---
 
-## Acknowledgments
+## Contributors
 
-- Thanks to all contributors who made this project possible
-- Special thanks to the open source community
-- Inspiration from classic command-line tools
+**Sethy** - [GitHub Profile](https://github.com/quelloduro)
+**Kokey** - [GitHub Profile](https://github.com/shessora)
 
 ---
 
 <div align="center">
 
-**If Orion-RAT is useful to you, consider giving it a star!**
-
-[Back to top](#Orion-RAT)
+**If Orion-RAT is useful to you, leave a star!**
 
 </div>
