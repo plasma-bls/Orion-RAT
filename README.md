@@ -1,6 +1,4 @@
-<h1 style="vertical-align: center;">Orion-RAT</h1>
-
-<img src="https://i.postimg.cc/x1Rgh7x3/image.webp" alt="Orion-RAT Logo" width="2000" height="1500" style="border-radius:12px;">
+<img style="text_align:center" width="291" height="72" alt="image" src="https://github.com/user-attachments/assets/bcc9cf71-a450-4559-a383-1c6eba8dbf5f" />
 
 
 [![Top Language](https://img.shields.io/github/languages/top/plasma-bls/Orion-RAT?style=flat-square&color=58a6ff)](https://github.com/plasma-bls/Orion-RAT)
