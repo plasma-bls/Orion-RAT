@@ -83,17 +83,9 @@ All commands use the `# Orion-RAT
 
 **Orion-RAT** is a versatile command-line utility designed to streamline system management operations. With an intuitive interface and powerful commands, Orion-RAT allows you to navigate, manage, and monitor your system efficiently.
 
-### Key Features
-
-- **Fast and Lightweight** - Optimized performance for smooth experience
-- **Intuitive Interface** - Simple and memorable commands
-- **Advanced File Management** - Simplified file and directory operations
-- **Process Monitoring** - Complete view of active processes
-- **Secure Operations** - Controlled and safe system operations
-
 ---
 
- prefix for immediate identification:
+`$` is the prefix:
 
 ### Navigation and Information
 | Command | Description | Example |
@@ -210,33 +202,6 @@ $kill malicious_app.exe      # Terminate unwanted process
 $exec netstat -an           # Execute network command
 $add_startup security_tool   # Add tool to startup
 ```
-
----
-
-## Technical Specifications
-
-- **Language**: Automatically determined by GitHub
-- **Compatibility**: Cross-platform
-- **Dependencies**: Minimal
-- **Performance**: Optimized for speed
-
----
-
-## Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. **Fork** the repository
-2. Create a **branch** for your feature (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. Open a **Pull Request**
-
-### Contribution Guidelines
-- Follow existing code style
-- Add tests for new features
-- Update documentation when necessary
-- Clearly describe changes in PR
 
 ---
 
