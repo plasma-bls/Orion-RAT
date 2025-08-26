@@ -290,6 +290,8 @@ This project is distributed under the MIT License. See the [LICENSE](LICENSE) fi
 
 <div align="center">
 
-**If Orion-RAT is useful to you, leave a star!**
+<p>If Orion-RAT is useful to you, leave a star! <img src="https://i.postimg.cc/nh2Pv6pD/top-arrow-1f51d.webp" width="30" height="30" style="vertical-align:middle;"></p>
+
+
 
 </div>
