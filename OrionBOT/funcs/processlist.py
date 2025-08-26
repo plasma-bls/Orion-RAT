@@ -3,6 +3,8 @@ import os
 import psutil
 import getpass
 
+# TODO: Change to `process.py` and make more minimal
+
 user = getpass.getuser()
 
 def get_processes():
@@ -35,4 +37,3 @@ def run():
     procs = get_processes()
     lines = [str(proc) for proc in procs]
     save_file(file_path, lines)
-

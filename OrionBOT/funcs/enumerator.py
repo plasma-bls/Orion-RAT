@@ -14,6 +14,8 @@ try:
 except ImportError:
     GPUtil = None
 
+# FIX: This can be a module, added in extern methods.
+
 def get_hwid():
     system = platform.system()
     if system == "Windows":
@@ -166,7 +168,7 @@ def get_network_info():
 
     return net_info
 
-def save_file(content):
+def save_file(content): # TODO: No disk, no trace. Please convert it to memory-file
     filename = "netstat.log"
 
     if platform.system() == "Linux":

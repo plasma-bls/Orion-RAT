@@ -1,7 +1,9 @@
 import requests
-import psutil
 import subprocess
 import os
+
+# FIX: This is code sucks, is not accurate. Is a copy-pasted code from a shitty repo, please change to a C based vm-check
+
 try:
     def check():
         def ip_check():

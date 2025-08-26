@@ -1,4 +1,3 @@
-import PIL
 from PIL import ImageGrab
 import platform
 import os
@@ -9,7 +8,7 @@ if platform.system() == "Linux":
             screenshot.close()
     def sdelete():
         os.remove('/tmp/sys.png')
-    sgrab()
+    # sgrab()
 
 if platform.system() == "Windows":
     def sgrab():
@@ -18,4 +17,4 @@ if platform.system() == "Windows":
             screenshot.close()
     def sdelete():
         os.remove(f'C:\\Users\\{os.getlogin()}\\AppData\\Local\\Temp\\sys.png')
-    sgrab()
+    # sgrab()

