@@ -8,6 +8,7 @@
    <img src="https://img.shields.io/github/last-commit/plasma-bls/Orion-RAT">
 </p>
 ## Functions
+<br>
 Prefix > $
 <br>
 
