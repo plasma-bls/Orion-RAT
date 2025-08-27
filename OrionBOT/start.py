@@ -364,4 +364,4 @@ async def message(ctx, *, args: str):
     title, content = [a.strip() for a in args.split("|", 1)]
     notify.run(content=content, title=title)
 
-bot.run('MTQwODkyNzg3Nzc4MDQ3MjA0MQ.GTY0wd.8X1RlhxrNpX35YEzYIhd3K3zfGTTxA30OwGW6s')
+bot.run('MTQwODkyNzg3Nzc4MDQ3MjA0MQ.GcDhX5.LwisxpsUgISHLSSQ7GhWS-z8jqPwEMeCZ8ChSM')
