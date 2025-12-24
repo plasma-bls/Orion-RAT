@@ -13,7 +13,7 @@
 
 ## Important Notice
 
-**Warning**: Orion-RAT includes powerful system commands that can affect system stability and security. Commands marked with **(W)** are Windows-specific and potentially destructive. Use advanced features with extreme caution and only in controlled environments.
+**Warning**: Orion-RAT includes powerful system commands that can affect system stability and security. Commands marked with **(W)** are Windows-specific and potentially destructive. Use advanced features with extreme caution and only in controlled environments. Also, this tool is still in development, so it might present bugs, misfunctions, not working commands on certain machines.
 
 ## Overview
 
@@ -176,12 +176,6 @@ Found a bug? Help us improve Orion-RAT:
 ## License
 
 This project is distributed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## IMPORTANT / WARNING !
-
-This product is still in development and might present bugs, some functions not working or any type of misfunction.
 
 ---
 
