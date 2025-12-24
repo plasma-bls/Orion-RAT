@@ -91,7 +91,7 @@ cd Orion-RAT
 
 ### Method 2: Direct Download
 Download the latest release from the [releases page](https://github.com/plasma-bls/Orion-RAT/releases)
-
+(currently not avaible)
 ---
 
 ## Usage
@@ -102,7 +102,7 @@ Download the latest release from the [releases page](https://github.com/plasma-b
 cd Orion-RAT
 
 # Run Orion-RAT
-./orion-tool
+python start.py
 
 # Example commands
 $pwd                   # Show current directory
