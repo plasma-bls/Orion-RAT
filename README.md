@@ -179,6 +179,12 @@ This project is distributed under the MIT License. See the [LICENSE](LICENSE) fi
 
 ---
 
+## IMPORTANT / WARNING !
+
+This product is still in development and might present bugs, some functions not working or any type of misfunction.
+
+---
+
 ## Author
 
 **Plasma** - [GitHub Profile](https://github.com/plasma-bls)
