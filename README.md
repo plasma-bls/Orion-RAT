@@ -15,6 +15,11 @@
 
 **Warning**: Orion-RAT includes powerful system commands that can affect system stability and security. Commands marked with **(W)** are Windows-specific and potentially destructive. Use advanced features with extreme caution and only in controlled environments. Also, this tool is still in development, so it might present bugs, misfunctions, not working commands on certain machines.
 
+---
+
+# THIS CODE WAS MADE A LONG TIME AGO, SO IT'S NOT UPDATED TO MY NEW KNOWLEDGE, DON'T TAKE THIS AS AN EXAMPLE FOR WHAT I CAN DO OR FOR WHAT I CAN'T DO. 
+
+---
 ## Overview
 
 **Orion-RAT** is a versatile command-line utility designed to streamline system management operations. With an intuitive interface and powerful commands, Orion-RAT allows you to navigate, manage, and monitor your system efficiently.
