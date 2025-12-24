@@ -17,7 +17,8 @@
 
 ---
 ## Disclaimer about the author 
-THIS CODE WAS MADE A LONG TIME AGO, SO IT'S NOT UPDATED TO MY NEW KNOWLEDGE, DON'T TAKE THIS AS AN EXAMPLE FOR WHAT I CAN DO NOR FOR WHAT I CAN'T DO. 
+
+This code was written a long time ago and does not reflect my current knowledge or skill level. it should not be taken as an example of what i can or cannot do.
 
 ---
 ## Overview
