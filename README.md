@@ -16,8 +16,8 @@
 **Warning**: Orion-RAT includes powerful system commands that can affect system stability and security. Commands marked with **(W)** are Windows-specific and potentially destructive. Use advanced features with extreme caution and only in controlled environments. Also, this tool is still in development, so it might present bugs, misfunctions, not working commands on certain machines.
 
 ---
-
-# THIS CODE WAS MADE A LONG TIME AGO, SO IT'S NOT UPDATED TO MY NEW KNOWLEDGE, DON'T TAKE THIS AS AN EXAMPLE FOR WHAT I CAN DO OR FOR WHAT I CAN'T DO. 
+## Disclaimer about the author 
+THIS CODE WAS MADE A LONG TIME AGO, SO IT'S NOT UPDATED TO MY NEW KNOWLEDGE, DON'T TAKE THIS AS AN EXAMPLE FOR WHAT I CAN DO NOR FOR WHAT I CAN'T DO. 
 
 ---
 ## Overview
