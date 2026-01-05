@@ -18,7 +18,7 @@
 ---
 ## Disclaimer about the author 
 
-This code was written a long time ago and does not reflect my current knowledge or skill level. it should not be taken as an example of what i can or cannot do.
+This code was written a long time ago and does not reflect my current knowledge or skill level. it should not be taken as an example of what i cannot do.
 
 ---
 ## Overview
